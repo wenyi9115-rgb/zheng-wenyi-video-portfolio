@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>郑雯怡 | 视频作品集</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
+  }
+  header {
+    text-align: center;
+    padding: 48px 20px 32px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: #fff;
+  }
+  header p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 0.04em;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+  .category { margin-bottom: 56px; }
+  .category-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #222;
+    margin-bottom: 24px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+  }
+  .card {
+    background: #141414;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #1f1f1f;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    border-color: #333;
+  }
+  .card video {
+    width: 100%;
+    display: block;
+    background: #000;
+    cursor: pointer;
+    max-height: 240px;
+    object-fit: cover;
+  }
+  .card-body { padding: 14px 16px; }
+  .card-body h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ddd;
+  }
+  .card-body .meta {
+    font-size: 0.78rem;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox video {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 6px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+  }
+  .lightbox .caption {
+    margin-top: 16px;
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+  .lightbox .close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+  .lightbox .close:hover { opacity: 1; }
+
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.5rem; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>视频作品集</h1>
+  <p>郑雯怡 &nbsp;/&nbsp; 上海视觉艺术学院</p>
+</header>
+
+<div class="container">
+
+  <section class="category">
+    <h2 class="category-title">AI 视频制作</h2>
+    <div class="grid">
+      <div class="card">
+        <video src="ai视频制作.mp4" preload="metadata" muted></video>
+        <div class="card-body">
+          <h3>AI 视频制作</h3>
+          <span class="meta">AI Video Production</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2 class="category-title">TouchDesigner</h2>
+    <div class="grid">
+      <div class="card">
+        <video src="touchdesigner/1.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>作品 1</h3><span class="meta">TouchDesigner</span></div>
+      </div>
+      <div class="card">
+        <video src="touchdesigner/2.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>作品 2</h3><span class="meta">TouchDesigner</span></div>
+      </div>
+      <div class="card">
+        <video src="touchdesigner/3.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>作品 3</h3><span class="meta">TouchDesigner</span></div>
+      </div>
+      <div class="card">
+        <video src="touchdesigner/4.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>作品 4</h3><span class="meta">TouchDesigner</span></div>
+      </div>
+      <div class="card">
+        <video src="touchdesigner/培养皿.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>培养皿</h3><span class="meta">TouchDesigner</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2 class="category-title">摄影 + 剪辑</h2>
+    <div class="grid">
+      <div class="card">
+        <video src="摄影+剪辑/实验短片.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>实验短片</h3><span class="meta">Experimental Short Film</span></div>
+      </div>
+      <div class="card">
+        <video src="摄影+剪辑/装置.mp4" preload="metadata" muted></video>
+        <div class="card-body"><h3>装置</h3><span class="meta">Installation</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lightboxClose">&times;</button>
+  <video id="lightboxVideo" controls></video>
+  <div class="caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxVideo = document.getElementById('lightboxVideo');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.card video').forEach(v => {
+    v.addEventListener('click', () => {
+      const title = v.closest('.card').querySelector('h3').textContent;
+      lightboxVideo.src = v.getAttribute('src');
+      lightboxCaption.textContent = title;
+      lightbox.classList.add('open');
+      lightboxVideo.load();
+      lightboxVideo.play();
+    });
+  });
+
+  lightboxClose.addEventListener('click', () => {
+    lightbox.classList.remove('open');
+    lightboxVideo.pause();
+    lightboxVideo.src = '';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('open');
+      lightboxVideo.pause();
+      lightboxVideo.src = '';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+      lightbox.classList.remove('open');
+      lightboxVideo.pause();
+      lightboxVideo.src = '';
+    }
+  });
+</script>
+</body>
+</html>
