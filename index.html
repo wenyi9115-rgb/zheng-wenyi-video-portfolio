@@ -57,13 +57,38 @@
     box-shadow: 0 12px 32px rgba(0,0,0,0.5);
     border-color: #333;
   }
-  .card video {
+  .card-video-wrap {
+    position: relative;
+    background: #1a1a1a;
+    cursor: pointer;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-video-wrap::after {
+    content: "▶";
+    position: absolute;
+    font-size: 2.4rem;
+    color: rgba(255,255,255,0.85);
+    pointer-events: none;
+    transition: transform 0.2s, opacity 0.2s;
+    z-index: 2;
+  }
+  .card-video-wrap:hover::after {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  .card-video-wrap video {
     width: 100%;
     display: block;
-    background: #000;
+    background: #1a1a1a;
     cursor: pointer;
-    max-height: 240px;
     object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
   }
   .card-body { padding: 14px 16px; }
   .card-body h3 {
@@ -133,7 +158,7 @@
     <h2 class="category-title">AI 视频制作</h2>
     <div class="grid">
       <div class="card">
-        <video src="ai视频制作.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="ai视频制作.mp4" preload="none" muted></video></div>
         <div class="card-body">
           <h3>AI 视频制作</h3>
           <span class="meta">AI Video Production</span>
@@ -146,23 +171,23 @@
     <h2 class="category-title">TouchDesigner</h2>
     <div class="grid">
       <div class="card">
-        <video src="touchdesigner/1.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="touchdesigner/1.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>作品 1</h3><span class="meta">TouchDesigner</span></div>
       </div>
       <div class="card">
-        <video src="touchdesigner/2.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="touchdesigner/2.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>作品 2</h3><span class="meta">TouchDesigner</span></div>
       </div>
       <div class="card">
-        <video src="touchdesigner/3.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="touchdesigner/3.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>作品 3</h3><span class="meta">TouchDesigner</span></div>
       </div>
       <div class="card">
-        <video src="touchdesigner/4.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="touchdesigner/4.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>作品 4</h3><span class="meta">TouchDesigner</span></div>
       </div>
       <div class="card">
-        <video src="touchdesigner/培养皿.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="touchdesigner/培养皿.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>培养皿</h3><span class="meta">TouchDesigner</span></div>
       </div>
     </div>
@@ -172,11 +197,11 @@
     <h2 class="category-title">摄影 + 剪辑</h2>
     <div class="grid">
       <div class="card">
-        <video src="摄影+剪辑/实验短片.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="摄影+剪辑/实验短片.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>实验短片</h3><span class="meta">Experimental Short Film</span></div>
       </div>
       <div class="card">
-        <video src="摄影+剪辑/装置.mp4" preload="metadata" muted></video>
+        <div class="card-video-wrap"><video src="摄影+剪辑/装置.mp4" preload="none" muted></video></div>
         <div class="card-body"><h3>装置</h3><span class="meta">Installation</span></div>
       </div>
     </div>
@@ -197,10 +222,11 @@
   const lightboxCaption = document.getElementById('lightboxCaption');
   const lightboxClose = document.getElementById('lightboxClose');
 
-  document.querySelectorAll('.card video').forEach(v => {
-    v.addEventListener('click', () => {
-      const title = v.closest('.card').querySelector('h3').textContent;
-      lightboxVideo.src = v.getAttribute('src');
+  document.querySelectorAll('.card-video-wrap').forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const video = wrap.querySelector('video');
+      const title = wrap.closest('.card').querySelector('h3').textContent;
+      lightboxVideo.src = video.getAttribute('src');
       lightboxCaption.textContent = title;
       lightbox.classList.add('open');
       lightboxVideo.load();
